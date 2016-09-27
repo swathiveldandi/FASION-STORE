@@ -40,14 +40,7 @@ public class ProductController {
 	SupplierDAO supplierDAO;
 	private Path path;
 
-	/*@RequestMapping(value="Product")
-	public String product(Model mv)
-	{
-		mv.addAttribute("product", new Product());
-		mv.addAttribute("UserClickedProduct","true");
-		return "Home";
-		
-	}*/
+	
 	
 	
 		@RequestMapping(value="editproduct")
@@ -83,8 +76,8 @@ public class ProductController {
 			return mv;
 		}
 	@RequestMapping(value ={"addeditproduct/{id}"} )
-	public String ProductPageedit(@PathVariable("id") int id,RedirectAttributes attributes, HttpServletRequest request) {
-		attributes.addFlashAttribute("product", this.productDAO.get(id));
+	public String ProductPageedit(@PathVariable("id") int productid,RedirectAttributes attributes, HttpServletRequest request) {
+		attributes.addFlashAttribute("product", this.productDAO.get(productid));
 		return "redirect:/Product";
 	}
 	@RequestMapping(value ={"adddeleteproduct/{id}"} )
@@ -93,12 +86,5 @@ public class ProductController {
 		productDAO.delete(product);
 		return "redirect:/Product";
 	}
-	   /*  @RequestMapping(value="Product")
-	    public ModelAndView product(ModelAndView mv)
-	    {
-	    	mv.addObject("product", new Product());
-	    	mv.addObject("productList",productDAO.list());
-	    	mv.addObject("UserClickedproduct", "true");
-	    	return mv;
-	}*/
+	  
 }

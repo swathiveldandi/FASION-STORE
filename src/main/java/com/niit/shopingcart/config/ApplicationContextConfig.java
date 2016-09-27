@@ -14,10 +14,17 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.shopingcart.dao.CartDAO;
+import com.niit.shopingcart.dao.CartDAOImpl;
 import com.niit.shopingcart.dao.CategoryDAO;
 import com.niit.shopingcart.dao.CategoryDAOImpl;
+import com.niit.shopingcart.dao.ProductDAO;
+import com.niit.shopingcart.dao.ProductDAOImpl;
 import com.niit.shopingcart.dao.SupplierDAO;
 import com.niit.shopingcart.dao.SupplierDAOImpl;
+import com.niit.shopingcart.dao.UserDAO;
+import com.niit.shopingcart.dao.UserDAOImpl;
+import com.niit.shopingcart.model.Cart;
 import com.niit.shopingcart.model.Category;
 import com.niit.shopingcart.model.Product;
 import com.niit.shopingcart.model.Supplier;
@@ -38,7 +45,7 @@ public class ApplicationContextConfig {
     	dataSource.setUrl("jdbc:h2:tcp://localhost/~/niitdb");
     	dataSource.setUsername("sa");
     	dataSource.setPassword("sa");
-    	
+    	//System.out.println("Datasource");
     	return dataSource;
     }
     
@@ -47,7 +54,8 @@ public class ApplicationContextConfig {
     	Properties properties = new Properties();
     	properties.put("hibernate.show_sql", "true");
     	properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
-    	//properties.put("hibernate.hbm2ddl.auto", "update");
+    	properties.put("hibernate.hbm2ddl.auto", "update");
+    	//System.out.println("Hibernate Properties");
     	return properties;
     }
     
@@ -60,6 +68,8 @@ public class ApplicationContextConfig {
     	sessionBuilder.addAnnotatedClasses(Supplier.class);
     	sessionBuilder.addAnnotatedClasses(User.class);
     	sessionBuilder.addAnnotatedClasses(Product.class);
+    	sessionBuilder.addAnnotatedClasses(Cart.class);
+    	//System.out.println("Session");
     	return sessionBuilder.buildSessionFactory();
     }
     
@@ -69,7 +79,7 @@ public class ApplicationContextConfig {
 			SessionFactory sessionFactory) {
 		HibernateTransactionManager transactionManager = new HibernateTransactionManager(
 				sessionFactory);
-
+		//System.out.println("Transaction");
 		return transactionManager;
 	}
     
@@ -78,12 +88,26 @@ public class ApplicationContextConfig {
     public CategoryDAO getCategorDAO(SessionFactory sessionFactory) {
     	return new CategoryDAOImpl(sessionFactory);
     }
+    
+    @Autowired
+    	@Bean(name = "productDAO")
+    	public ProductDAO getProductDAO(SessionFactory sessionFactory) {
+    			return new ProductDAOImpl(sessionFactory);
+    	}
     @Autowired
     @Bean(name="supplierDAO")
     public SupplierDAO getSupplierDAO(SessionFactory sessionFactory) {
     	return new SupplierDAOImpl(sessionFactory);
     }
-    
-
+    @Autowired
+    	@Bean(name = "userDAO")
+    	public UserDAO getUserDAO(SessionFactory sessionFactory) {
+    			return new UserDAOImpl(sessionFactory);
+    	}
+    @Autowired
+    	@Bean(name = "cartDAO")
+    	public CartDAO getCartDAO(SessionFactory sessionFactory) {
+    			return new CartDAOImpl(sessionFactory);
+    	}
 
 }

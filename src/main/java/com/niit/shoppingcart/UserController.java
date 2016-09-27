@@ -18,25 +18,23 @@ public class UserController {
 	UserDAO userDAO;
 	@Autowired
 	User user;
-	@RequestMapping("/login")
-	public ModelAndView login(@RequestParam(value="id") String id,
-			@RequestParam(value="password")String password,HttpSession session)
-	{
-		ModelAndView mv = new ModelAndView("home");
+
+	/*@RequestMapping("/login")
+	public ModelAndView login(@RequestParam(value = "id") int id,
+			@RequestParam(value = "password") String password,HttpSession session) {
+		ModelAndView mv = new ModelAndView("Home");
+		@SuppressWarnings("unused")
 		String msg;
-		user = userDAO.isValidUser(id, password);
-		if(user==null) {
-		msg = "Invalid user... please try again letter"	;
+		userDetails = userDetailsDAO.isValidUser(id, password);
+		if (userDetails == null) {
+			msg = "Invalid User";
+		}
+		if (userDetails.getRole().equals("ROLE_ADMIN")) {
+			mv = new ModelAndView("Admin");
 		} else {
-			
-		if(user.getRole().equals("ROLE_ADMIN")) {
-			mv = new ModelAndView("adminhome");
+			session.setAttribute("welcomemsg", userDetails.getName());
+			session.setAttribute("userId", userDetails.getId());
 		}
-		session.setAttribute("welcomeMsg", user.getName());
-		session.setAttribute("UserId",user.getId());
-		}
-				
 		return mv;
-		
-}
+	}*/
 }

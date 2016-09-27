@@ -7,7 +7,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Supplier</title>
+
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script>
+ 	var app = angular.module('myApp', []);
+ 	function MyController($scope, $http) {
+ 		$scope.sortType = 'name'; // set the default sort type
+ 		$scope.sortReverse = false; // set the default sort order
+ 		$scope.search = '';
+ 		$scope.getDataFromServer = function() {
+ 			$http({
+ 				method : 'GET',
+ 				url : 'suppliergson'
+ 			}).success(function(data, status, headers, config) {
+ 				$scope.suppliers = data;// alert(data); 
+ 			}).error(function(data, status, headers, config) {
+ 			});
+ 		};
+ 	};
+ </script>
 <style>
 table {
     font-family: arial, sans-serif;
@@ -28,20 +46,28 @@ td,tr, th {
 
 
 <c:url var="editAction" value="editsupplier"></c:url>
-	<form:form action="${editAction}" modelAttribute="supplier1">
-Id:<form:input path="id" />
-		
-Name:<form:input path="name" />
-		
-Address:<form:input path="address" />
-		
+	<form:form action="${editAction}" modelAttribute="supplier">
+	<tr>
+	<td><label for="id">Id:</label></td>
+<form:input path="id" />
+</tr>	
+<tr>
+	<td><label for="name">Name:</label></td>	
+<form:input path="name" />
+	</tr>
+	<tr>
+	<td><label for="address">Address:</label></td>	
+<form:input path="address" />
+</tr>		
 		
 		<button type="submit" class="btn btn-primary">edit</button>
 	</form:form>
 	
-	
-
-
+	${successmessage }
+ 	
+<div class="container" ng-app="myApp"
+ 				ng-controller="MyController" ng-init="getDataFromServer()">
+ 			<br>
 <div align="center">
 <table style="width:80%">
 <br>
@@ -52,8 +78,8 @@ Address:<form:input path="address" />
     <th>Supplier ID</th>
     <th>Supplier Name</th>
     <th>Supplier Address</th>
-<th>Edit</th>
-<th>Delete</th>
+     <th>Edit</th>
+     <th>Delete</th>
   </tr>
 </thead>
 <tbody>
@@ -62,8 +88,12 @@ Address:<form:input path="address" />
     <td><c:out value="${supplier.id }"/></td>
     <td><c:out value="${supplier.name }"/></td>
     <td><c:out value="${supplier.address}"/></td>
-     <td><a href ="addeditsupplier/${supplier.id}" /><img alt="Edit" src="D:\images\edit1.jpg"></a>
-      <td><a href ="adddeletesupplier/${supplier.id}" /><img alt="Delete" src="D:\images\del1.jpg"></a>
+     <td><a href ="addeditsupplier/${supplier.id}" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-edit"></span> Edit
+        </a>
+      <td><a href ="adddeletesupplier/${supplier.id}" class="btn btn-info btn-lg" />
+          <span class="glyphicon glyphicon-trash"></span> Trash
+        </a>
     
   </tr>
   </c:forEach>

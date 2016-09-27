@@ -21,7 +21,7 @@ uri="http://www.springframework.org/tags/form" %>
         </a>
     </div>
     <ul class="nav navbar-nav">
-       <li><a class="active" href="Supplier">Supplier</a></li>
+       <li><a href="Supplier">Supplier</a></li>
       <li><a href="Product">Product</a></li>
       <li><a href="Category">Category</a></li>
     </ul>
@@ -29,10 +29,17 @@ uri="http://www.springframework.org/tags/form" %>
 </nav>
 ${msg}
 ${msg1}
+
+<h1>Welcome Admin</h1>
+<div align="right"><a href=<c:url value="perform_logout"/>>logout</a></div>
+<script>
 <script>
 var app = angular.module("myapp", ["ngRoute"]);
 app.config(function($routeProvider) {
     $routeProvider
+    .when("/", {
+        templateUrl :"Home"
+    })
     .when("/Supplier",{
     	templateUrl : "Supplier"
     })

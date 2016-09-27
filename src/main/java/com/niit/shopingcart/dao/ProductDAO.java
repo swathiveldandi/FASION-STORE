@@ -14,6 +14,9 @@ public interface ProductDAO {
 	public boolean saveOrUpdate(Product product);
 
 	public boolean delete(Product product);
-
+	
+	public List<Product> getproduct(int id);
+	
+	public List<Product> navproduct(int id);
 
 }

@@ -2,6 +2,7 @@ package com.niit.shopingcart.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,26 +14,28 @@ import org.springframework.stereotype.Component;
 public class User {
 
 	@Id
-	@Column(name="id")
-	private String id;
-	private String name;
-	private String password;
-    private String mailID;
-	private String address;
-	private String contactNumber;
-	private String role;
+	@GeneratedValue
+	@Column(name = "userId")
+	private int userId;
 	
-	public String getName() {
-		return name;
+	
+	private String username;
+	private String password;
+	private String mobile;
+	private String email;
+	private String role;
+	private boolean enabled;
+	public int getUserId() {
+		return userId;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
-	public String getId() {
-		return id;
+	public String getUsername() {
+		return username;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 	public String getPassword() {
 		return password;
@@ -40,26 +43,17 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-		
-	
-	
-	public String getMailID() {
-		return mailID;
+	public String getMobile() {
+		return mobile;
 	}
-	public void setMailID(String mailID) {
-		this.mailID = mailID;
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
 	}
-	public String getAddress() {
-		return address;
+	public String getEmail() {
+		return email;
 	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public String getContactNumber() {
-		return contactNumber;
-	}
-	public void setContactNumber(String contactNumber) {
-		this.contactNumber = contactNumber;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getRole() {
 		return role;
@@ -67,5 +61,13 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
+	public boolean isEnabled() {
+		return enabled;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+	
+	
 	
 }

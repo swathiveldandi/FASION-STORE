@@ -1,4 +1,4 @@
-/*package com.niit.shoppingcartbackEnd;
+package com.niit.shoppingcartbackEnd;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.niit.shopingcart.dao.UserDAO;
@@ -14,23 +14,15 @@ public class UserTest {
 		UserDAO userDAO =   (UserDAO) context.getBean("userDAO");
 		User user =   (User) context.getBean("user");
 		
-		user.setId("niit");
+		user.setUserId(1);
+		user.setUsername("abcd");
+		user.setEmail("afdga");
 		user.setPassword("niit");
+		user.setMobile("45232");
+		user.setRole("ROLE_ADMIN");
+		user.setEnabled(true);
 		userDAO.saveOrUpdate(user);
 		System.out.println("save");
 		context.close();
-		if(categoryDAO.save(category)==true);
-		{
-		System.out.println("Category created successfully");
-		}
-		else
-		{
-		
-		
-		
-		
 	}
-
-
 }
-*/

@@ -3,7 +3,7 @@ package com.niit.shopingcart.dao;
 import java.util.List;
 
 import com.niit.shopingcart.model.User;
-import com.niit.shopingcart.model.UserDetails;
+
 
 
 
@@ -12,15 +12,14 @@ public interface UserDAO {
 
 	public List<User> list();
 
-	public User get(String id);
+	public User get(int id);
 
-	public void saveOrUpdate(User user);
+	public boolean saveOrUpdate(User user);
 	
-	public void saveOrUpdate(UserDetails userDetails);
-
-	public void delete(String id);
 	
-	public User isValidUser(String id, String name);
+	public void delete(int id);
+	
+	public boolean isValidUser(String username, String password);
 
-
+	public User get(String username);
 }

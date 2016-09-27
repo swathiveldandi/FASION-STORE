@@ -26,16 +26,21 @@ td,tr, th {
 </head>
 
 
-
-
 <c:url var="editAction" value="editcategory"></c:url>
 	<form:form action="${editAction}" modelAttribute="category">
-Id:<form:input path="id" />
-		
-Name:<form:input path="name" />
-		
-Description:<form:input path="description" />
-
+	
+<tr>
+	<td><label for="id">Id:</label></td>	
+<form:input path="id"  />
+	</tr>
+	<tr>
+	<td><label for="name">Name:</label></td>	
+<form:input path="name" />
+	</tr>	
+	<tr>
+	<td><label for="description">Description:</label></td>
+<form:input path="description" />
+</tr>
 <button type="submit" class="btn btn-primary">edit</button>
 		
 		
@@ -64,8 +69,12 @@ Description:<form:input path="description" />
     <td><c:out value="${category.id }"/></td>
     <td><c:out value="${category.name }"/></td>
     <td><c:out value="${category.description}"/></td>
-     <td><a href ="addeditcategory/${category.id}"/><img alt="Edit" src="D:\images\edit1.jpg"></a>
-      <td><a href ="adddeletecategory/${category.id}"/><img alt="Delete" src="D:\images\del1.jpg"></a>
+     <td><a href ="addeditcategory/${category.id}"class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-edit"></span> Edit
+        </a>
+      <td><a href ="adddeletecategory/${category.id}" class="btn btn-info btn-lg" />
+          <span class="glyphicon glyphicon-trash"></span> Trash
+        </a>
     
   </tr>
   </c:forEach>
