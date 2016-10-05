@@ -18,6 +18,8 @@ import com.niit.shopingcart.dao.CartDAO;
 import com.niit.shopingcart.dao.CartDAOImpl;
 import com.niit.shopingcart.dao.CategoryDAO;
 import com.niit.shopingcart.dao.CategoryDAOImpl;
+import com.niit.shopingcart.dao.CheckoutDAO;
+import com.niit.shopingcart.dao.CheckoutDAOImpl;
 import com.niit.shopingcart.dao.ProductDAO;
 import com.niit.shopingcart.dao.ProductDAOImpl;
 import com.niit.shopingcart.dao.SupplierDAO;
@@ -26,6 +28,7 @@ import com.niit.shopingcart.dao.UserDAO;
 import com.niit.shopingcart.dao.UserDAOImpl;
 import com.niit.shopingcart.model.Cart;
 import com.niit.shopingcart.model.Category;
+import com.niit.shopingcart.model.Checkout;
 import com.niit.shopingcart.model.Product;
 import com.niit.shopingcart.model.Supplier;
 import com.niit.shopingcart.model.User;
@@ -69,6 +72,7 @@ public class ApplicationContextConfig {
     	sessionBuilder.addAnnotatedClasses(User.class);
     	sessionBuilder.addAnnotatedClasses(Product.class);
     	sessionBuilder.addAnnotatedClasses(Cart.class);
+    	sessionBuilder.addAnnotatedClass(Checkout.class);
     	//System.out.println("Session");
     	return sessionBuilder.buildSessionFactory();
     }
@@ -109,5 +113,11 @@ public class ApplicationContextConfig {
     	public CartDAO getCartDAO(SessionFactory sessionFactory) {
     			return new CartDAOImpl(sessionFactory);
     	}
+    @Autowired
+    @Bean(name="checkoutDAO")
+    public CheckoutDAO getcheckoutDAO(SessionFactory sessionFactory) {
+		return new CheckoutDAOImpl(sessionFactory);
+  
+    }
 
 }

@@ -28,19 +28,23 @@
  </script>
 <style>
 table {
-    font-family: arial, sans-serif;
     border-collapse: collapse;
-    color:red;
     width: 100%;
 }
-
-td,tr, th {
-    border: 2px solid #dddddd;
-    color:Red;
-    text-align: center;
+th, td {
+border: 2px solid #dddddd;
+    color:green;
+    text-align: left;
     padding: 8px;
 }
 
+tr:nth-child(even){background-color: #f2f2f2}
+
+
+th {
+    background-color: black;
+    color: white;
+    }
 </style>
 </head>
 

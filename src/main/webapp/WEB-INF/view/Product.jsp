@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -10,16 +10,22 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <style>
 table {
-    font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
 }
-
-td,tr, th {
-    border: 2px solid #dddddd;
+th, td {
+border: 2px solid #dddddd;
     color:green;
-    text-align: center;
+    text-align: left;
     padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+
+th {
+    background-color: black;
+    color: white;
 }
 </style>
 </head>
@@ -74,17 +80,14 @@ td,tr, th {
 					<br>
 					<td><input type="submit" class="btn btn-primary" value="Save" /></td>
 				
-
-		
-		
+  
 	</form:form>
 	
 	<br>
-
-
 <div align="center">
 <table style="width:100%">
 <caption type="Products" class="btn btn-primary">Products</caption>
+
 <thead>
 <tr>
     <th>Product ID</th>

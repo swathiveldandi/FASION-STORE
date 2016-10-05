@@ -208,6 +208,11 @@ app.config(function($routeProvider) {
 		</c:when>
 	</c:choose>
 	<c:choose>
+	<c:when test="${Clickedcatproduct}">
+			<c:import url="/WEB-INF/view/catproducts.jsp"></c:import>
+		</c:when>
+	</c:choose>
+	<c:choose>
 	<c:when test="${UserClickedCart}">
 	<c:import url="/WEB-INF/view/Cart.jsp"></c:import>
 	</c:when>
