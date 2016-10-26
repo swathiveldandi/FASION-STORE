@@ -1,4 +1,3 @@
-
 package com.niit.shoppingcart;
 
 import javax.servlet.http.HttpSession;

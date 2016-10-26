@@ -9,7 +9,6 @@
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 <title>Shopping Cart</title>
@@ -67,9 +66,9 @@
 	<li><a href="">Welcome<sec:authentication property="principal.username"/></a></li>
 </sec:authorize>
  <sec:authorize access="!isAuthenticated()">
-			
-			 <li><a href="Registration"><p>Register<span class="glyphicon glyphicon-user"></span></p></a></li>
-	  <li><a href="Login"><p>Login<span class="glyphicon glyphicon-log-in"></span></p></a></li>
+		
+			  <li><a href="Registration"><p>Register<span class="glyphicon glyphicon-user"></span></p></a></li>
+	  <li><a href="Login"><p>Login<span class="glyphicon glyphicon-log-in"></span></p></a></li> 
 					</sec:authorize>  
 					
       
@@ -222,6 +221,7 @@ app.config(function($routeProvider) {
 	<c:import url="/WEB-INF/view/Payment.jsp"></c:import>
 	</c:when>
 </c:choose>
+
 <c:choose>
 			<c:when test="${!Administrator}">
 				<br>
@@ -298,5 +298,6 @@ app.config(function($routeProvider) {
 	</table>
 </c:if></c:when></c:choose></div>
 </footer>
+
   </body>
 </html>

@@ -19,10 +19,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title> New User Registration</title>
+<link href="<c:url value="/resources/css/stylee.css" />" rel="stylesheet">
+ <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="<c:url value="/resources/css/login.css"/>">
 </head>
 
-	
-	
 	<section id="content">
 			<c:url var="addAction" value="adduser"></c:url>
 			<form:form action="${addAction}" modelAttribute="user"
@@ -66,7 +67,7 @@
 			
 		</section>
 		
-	</div>
+	</div> 
 	
 </body>
 </html>

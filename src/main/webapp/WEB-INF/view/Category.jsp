@@ -7,6 +7,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Category</title>
+<script>
+	var app = angular.module('myApp', []);
+	function MyController($scope, $http) {
+		$scope.sortType = 'name'; // set the default sort type
+		$scope.sortReverse = false; // set the default sort order
+		$scope.search = '';
+		$scope.getDataFromServer = function() {
+			$http({
+				method : 'GET',
+				url : 'categorygson'
+			}).success(function(data, status, headers, config) {
+				$scope.categories = data;// alert(data); 
+			}).error(function(data, status, headers, config) {
+			});
+		};
+	};
+</script>
+
 </head>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 <style>
@@ -33,35 +51,39 @@ th {
 
 
 <c:url var="editAction" value="editcategory"></c:url>
-	<form:form action="${editAction}" modelAttribute="category">
+	<div class="text-center myForm">
+		<c:url var="action" value="editcategory"></c:url>
+		<form:form action="${editAction}" modelAttribute="category" >
+			<table>
 	
-<tr>
-	<td><label for="id">Id:</label></td>	
-<form:input path="id"  />
-	</tr>
-	<tr>
-	<td><label for="name">Name:</label></td>	
-<form:input path="name" />
-	</tr>	
-	<tr>
-	<td><label for="description">Description:</label></td>
-<form:input path="description" />
-</tr>
-<button type="submit" class="btn btn-primary">edit</button>
-		
-		
-	</form:form>
-	
+	               <tr>
+					<td>Id:</td>
+					<td><form:input class="input1" path="id" required="true"/></td>
+				</tr>
+				
+				<tr>
+					<td>Name:</td>
+					<td><form:input class="input1" path="name" required="true"/></td>
+				</tr>
+				<tr>
+					<td>Description:</td>
+					<td><form:input class="input1" path="description" required="true"/></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" class="btn btn-primary" value="Save" /></td>
+				</tr>
+			</table>
+		</form:form>
+	</div>
 	
 
 
 <div align="center">
 <table style="width:80%">
-<br>
-<br>
-<caption type="Categories" class="btn btn-primary">Categories</button>
+<caption>Categories</caption>
 <thead>
-  <tr>
+ <tr>
     <th>Category ID</th>
     <th>Category Name</th>
     <th>Category Description</th>
@@ -72,10 +94,10 @@ th {
 <tbody>
 <c:forEach items="${categoryList}" var="category">
   <tr>
-    <td><c:out value="${category.id }"/></td>
-    <td><c:out value="${category.name }"/></td>
-    <td><c:out value="${category.description}"/></td>
-     <td><a href ="addeditcategory/${category.id}"class="btn btn-info btn-lg">
+      <td><c:out value="${category.id }"/></td>
+   <td> <c:out value="${category.name }"/></td>
+   <td> <c:out value="${category.description}"/></td>
+   <td><a href ="addeditcategory/${category.id}"class="btn btn-info btn-lg">
           <span class="glyphicon glyphicon-edit"></span> Edit
         </a>
       <td><a href ="adddeletecategory/${category.id}" class="btn btn-info btn-lg" />
@@ -89,7 +111,12 @@ th {
    </tbody>
 </table>
 </div>
-<script src="bootstrap/js/bootstrap.min.js"></script>  
+<script src="bootstrap/js/bootstrap.min.js"></script> 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+    <script src="js/all.js"></script>
+    <script src="js/main.js"></script>
+ 
 </body>
 
 </html>

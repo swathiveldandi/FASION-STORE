@@ -11,12 +11,16 @@ D:\DT\ShoppingCartFrontEnd\src\main\java\com\niit\shopingcart\dao\CartDAO.java
 D:\DT\ShoppingCartFrontEnd\src\main\java\com\niit\shoppingcart\ProductController.java
 D:\DT\ShoppingCartFrontEnd\src\main\java\com\niit\shopingcart\dao\UserDAO.java
 D:\DT\ShoppingCartFrontEnd\src\main\java\com\niit\shopingcart\config\ApplicationContextConfig.java
+D:\DT\ShoppingCartFrontEnd\src\main\java\com\niit\shopingcart\dao\CheckoutDAOImpl.java
+D:\DT\ShoppingCartFrontEnd\src\main\java\com\niit\shopingcart\handler\CheckoutHandler.java
 D:\DT\ShoppingCartFrontEnd\src\main\java\com\niit\shoppingcart\SupplierController.java
 D:\DT\ShoppingCartFrontEnd\src\main\java\com\niit\shopingcart\dao\ProductDAO.java
 D:\DT\ShoppingCartFrontEnd\src\main\java\com\niit\shopingcart\model\Product.java
 D:\DT\ShoppingCartFrontEnd\src\main\java\com\niit\shoppingcart\CategoryController.java
 D:\DT\ShoppingCartFrontEnd\src\main\java\com\niit\shopingcart\dao\UserDAOImpl.java
+D:\DT\ShoppingCartFrontEnd\src\main\java\com\niit\shopingcart\model\Checkout.java
 D:\DT\ShoppingCartFrontEnd\src\main\java\com\niit\shopingcart\dao\CategoryDAO.java
+D:\DT\ShoppingCartFrontEnd\src\main\java\com\niit\shopingcart\dao\CheckoutDAO.java
 D:\DT\ShoppingCartFrontEnd\src\main\java\com\niit\shopingcart\dao\SupplierDAO.java
 D:\DT\ShoppingCartFrontEnd\src\main\java\com\niit\shopingcart\dao\SupplierDAOImpl.java
 D:\DT\ShoppingCartFrontEnd\src\main\java\com\niit\shopingcart\model\User.java

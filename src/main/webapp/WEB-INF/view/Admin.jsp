@@ -20,10 +20,13 @@ uri="http://www.springframework.org/tags/form" %>
           <span class="glyphicon glyphicon-home"></span>
         </a>
     </div>
+    
     <ul class="nav navbar-nav">
-       <li><a href="Supplier">Supplier</a></li>
-      <li><a href="Product">Product</a></li>
-      <li><a href="Category">Category</a></li>
+    
+       <li class="active"><a href="Supplier">Supplier</a></li>
+      <li class="active"><a href="Product">Product</a></li>
+      <li class="active"><a href="Category">Category</a></li>
+      <li class="social pull-right"><a href=<c:url value="perform_logout"/>>Logout</a></li>
     </ul>
   </div>
 </nav>
@@ -31,7 +34,6 @@ ${msg}
 ${msg1}
 
 <h1>Welcome Admin</h1>
-<div align="right"><a href=<c:url value="perform_logout"/>>logout</a></div>
 <script>
 <script>
 var app = angular.module("myapp", ["ngRoute"]);
