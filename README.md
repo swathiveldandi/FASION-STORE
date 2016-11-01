@@ -14,10 +14,12 @@ This Ecommerce project is built using Spring, Hibernate ORM and Spring security 
 Installation Guide
 
     Download Eclipse
-    Install Tomcat
-    Set Tomcat path Reference
-    Download Project here
-    Import Project in Eclipse
+
+Install Tomcat
+
+Set Tomcat path Reference
+
+Import Project in Eclipse
     .File
     .Import
     .Existing projects into workspace
