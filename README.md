@@ -18,10 +18,10 @@ Installation Guide
     Set Tomcat path Reference
     Download Project here
     Import Project in Eclipse
-        File
-        Import
-        Existing projects into workspace
-        Finish
+    .File
+    .Import
+    .Existing projects into workspace
+    .Finish
     After importing right click on project and click run on apache tomcat server
 
 Softwares used
