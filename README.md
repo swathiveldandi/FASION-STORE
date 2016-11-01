@@ -1,4 +1,4 @@
- FASION-STORE
+                  FASION-STORE -NIIT PROJECT1
  
  This Ecommerce project is built using Spring, Hibernate ORM and Spring security consisting of basic funtionality like
 
